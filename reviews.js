@@ -1,0 +1,6 @@
+db.reviews.find({})
+db.reviews.find({rating:5})
+db.reviews.find({rating:{$gt:4}})
+db.reviews.find({customer_id:1})
+db.reviews.find().sort({rating:1})
+db.reviews.aggregate([{$group:{_id:"$restaurant_id",avg:{$avg:"$rating"}}}])
