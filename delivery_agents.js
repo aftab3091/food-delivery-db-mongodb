@@ -1,0 +1,6 @@
+db.delivery_agents.find({})
+db.delivery_agents.find({city:"Bangalore"})
+db.delivery_agents.find({rating:{$gt:4.7}})
+db.delivery_agents.find({agent_name:/^A/})
+db.delivery_agents.find().sort({rating:1})
+db.delivery_agents.aggregate([{$group:{_id:null,avg:{$avg:"$rating"}}}])
