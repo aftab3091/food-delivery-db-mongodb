@@ -1,0 +1,8 @@
+db.payments.find({})
+db.payments.find({status:"Success"})
+db.payments.find({status:"Pending"})
+db.payments.find({payment_method:"UPI"})
+db.payments.find({amount:{$gt:300}})
+db.payments.find().sort({amount:1})
+db.payments.find().limit(3)
+db.payments.aggregate([{$group:{_id:"$payment_method",count:{$sum:1}}}])
